@@ -14,7 +14,10 @@ app.use(bodyParser.urlencoded())
 app.use(express.static(path.join(__dirname, 'public')))
 
 //routes
-app.get('/', routes.displayUsers)
+app.get('/', routes.readUsers)
+app.get('/create', routes.createUser)
+app.get('/update', routes.updateUser)
+app.get('/delete', routes.deleteUser)
 
 app.listen(PORT, function () {
   console.log('holla on port', PORT)

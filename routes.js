@@ -2,13 +2,40 @@ var db = require('./data/db')
 var path = require('path')
 
 module.exports = {
-  displayUsers: displayUsers,
+  readUsers: readUsers,
+  createUser: createUser,
+  updateUser: updateUser,
+  deleteUser: deleteUser
 }
 
-function displayUsers(req, res) {
+function readUsers(req, res) {
   db.fetchUsers()
     .then(function (users) {
       res.render('home', {users:users})
     })
     .catch(console.error)
+}
+
+function createUser(req, res) {
+  db.addUser()
+  .then(function (users) {
+    res.redirect('/')
+  })
+  .catch(console.error)
+}
+
+function updateUser(req, res) {
+  db.putUser()
+  .then(function (users) {
+    res.redirect('/')
+  })
+  .catch(console.error)
+}
+
+function deleteUser(req, res) {
+  db.removeUser()
+  .then(function (users) {
+    res.redirect('/')
+  })
+  .catch(console.error)
 }

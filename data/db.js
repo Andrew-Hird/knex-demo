@@ -7,7 +7,10 @@ var knex = require('knex')({
 })
 
 module.exports = {
-  fetchUsers: fetchUsers
+  fetchUsers: fetchUsers,
+  addUser: addUser,
+  putUser: putUser,
+  removeUser: removeUser
 }
 
 // Method to show all current users
@@ -18,4 +21,27 @@ function fetchUsers () {
       return data
     })
     .catch(console.error)
+}
+
+function addUser () {
+  return knex('users')
+  .insert({firstName: 'inputTestName', lastName: 'ayylmao', email: 'dank@memes.com'})
+  .catch(console.error)
+}
+
+function putUser () {
+  return knex('users')
+  .where('id', '=', 21)
+  .update({
+    firstName: 'BOB',
+    lastName: 'SMITH'
+  })
+  .catch(console.error)
+}
+
+function removeUser () {
+  return knex('users')
+  .where('lastName', '=', 'ayylmao')
+  .del()
+  .catch(console.error)
 }

@@ -33,7 +33,8 @@ function updateUser(req, res) {
 }
 
 function deleteUser(req, res) {
-  db.removeUser()
+  var userId = req.query.user_id
+  db.removeUser(userId)
   .then(function (users) {
     res.redirect('/')
   })

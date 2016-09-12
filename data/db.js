@@ -16,7 +16,7 @@ module.exports = {
 // Method to show all current users
 function fetchUsers () {
   return knex('users')
-    .select('firstName', 'lastName', 'email')
+    .select('id', 'firstName', 'lastName', 'email')
     .then(function (data) {
       return data
     })
@@ -39,9 +39,9 @@ function putUser () {
   .catch(console.error)
 }
 
-function removeUser () {
+function removeUser (id) {
   return knex('users')
-  .where('lastName', '=', 'ayylmao')
+  .where('id', '=', id)
   .del()
   .catch(console.error)
 }

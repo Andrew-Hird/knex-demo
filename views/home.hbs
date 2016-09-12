@@ -6,9 +6,13 @@
   </head>
   <body>
     {{#each users}}
+      {{id}}
       {{firstName}}
       {{lastName}}
       {{email}}
+      <a href="/delete?user_id={{id}}"> DELETE </a>
+      <br>
     {{/each}}
+    <a href="/create"> New user </a>
   </body>
 </html>

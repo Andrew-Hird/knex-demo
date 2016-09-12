@@ -23,18 +23,17 @@ function fetchUsers () {
     .catch(console.error)
 }
 
-function addUser () {
+function addUser (data) {
   return knex('users')
-  .insert({firstName: 'inputTestName', lastName: 'ayylmao', email: 'dank@memes.com'})
+  .insert({firstName: data.firstName, lastName: data.lastName, email: data.email})
   .catch(console.error)
 }
 
 function putUser () {
   return knex('users')
-  .where('id', '=', 21)
+  .where('id', '>', 30)
   .update({
-    firstName: 'BOB',
-    lastName: 'SMITH'
+    lastName: 'bob'
   })
   .catch(console.error)
 }

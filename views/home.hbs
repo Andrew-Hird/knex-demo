@@ -6,13 +6,20 @@
   </head>
   <body>
     {{#each users}}
-      {{id}}
       {{firstName}}
       {{lastName}}
       {{email}}
       <a href="/delete?user_id={{id}}"> DELETE </a>
       <br>
     {{/each}}
-    <a href="/create"> New user </a>
+    <br>
+    <a href="/update">Update to bob</a>
+    <br>
+    <form action="/create" method="post">
+      <input name="firstName" placeholder="First Name">
+      <input name="lastName" placeholder="Last Name">
+      <input name="email" placeholder="Email">
+      <input type="submit">
+    </form>
   </body>
 </html>

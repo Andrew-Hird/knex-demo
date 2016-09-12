@@ -17,7 +17,12 @@ function readUsers(req, res) {
 }
 
 function createUser(req, res) {
-  db.addUser()
+  var userDetails = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email
+  }
+  db.addUser(userDetails)
   .then(function (users) {
     res.redirect('/')
   })

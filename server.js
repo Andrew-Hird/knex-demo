@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 //routes
 app.get('/', routes.readUsers)
-app.get('/create', routes.createUser)
+app.post('/create', routes.createUser)
 app.get('/update', routes.updateUser)
 app.get('/delete', routes.deleteUser)
 
